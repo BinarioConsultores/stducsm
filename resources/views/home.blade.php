@@ -1,23 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
+@section('contenido')
+    <div class="content">
+        <div class="page-layout simple full-width">
+            <!-- HEADER -->
+            <div class="page-header bg-secondary text-auto p-6">
+                <span class="h2">Bienvenido al Sistema</span>
             </div>
+            <!-- / HEADER -->
+            <!-- CONTENT -->
+            <div class="page-content p-6">
+                <!-- DEMO CONTENT -->
+                <!-- DEMO CONTENT -->
+                <div class="demo-content">
+                    <h5><strong>Usuario :</strong>{{Auth::user()->name}}</h5>
+                    <h5><strong>Área de Trabajo :</strong>{{Auth::user()->Area->area_desc}}</h5>
+                    <h5><strong>Tipo de Usuario :</strong>{{Auth::user()->TipoUsuario->tusu_desc}}</h5>
+                </div>
+                <!-- / DEMO CONTENT -->
+                <!-- / DEMO CONTENT -->
+            </div>
+            <!-- / CONTENT -->
         </div>
     </div>
-</div>
 @endsection

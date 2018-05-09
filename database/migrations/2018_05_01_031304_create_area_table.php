@@ -17,6 +17,7 @@ class CreateAreaTable extends Migration
             $table->increments('area_id');
             $table->string('area_desc');
             $table->string('area_abr');
+            $table->string('area_cor');
             $table->timestamps();
         });
     }

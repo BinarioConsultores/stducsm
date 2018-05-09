@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
-
 <!-- Mirrored from fuse-bootstrap4-material.withinpixels.com/vertical-layout-below-toolbar-left-navigation/user-interface-page-layouts-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2018 23:35:12 GMT -->
 <head>
     <title>STD - UCSM</title>
@@ -82,7 +80,7 @@
                         <ul class="nav flex-column custom-scrollbar" id="sidenav" data-children=".nav-item">
 
                             <li class="subheader">
-                                <span>APPS</span>
+                                <span>Ejemplo de Menu</span>
                             </li>
 
                             <li class="nav-item" role="tab" id="heading-dashboards">
@@ -91,26 +89,37 @@
 
                                     <i class="icon s-4 icon-tile-four"></i>
 
-                                    <span>Dashboards</span>
+                                    <span>Nivel 1</span>
                                 </a>
                                 <ul id="collapse-dashboards" class='collapse ' role="tabpanel" aria-labelledby="heading-dashboards" data-children=".nav-item">
 
                                     <li class="nav-item">
-                                        <a class="nav-link ripple " href="index-2.html" data-url="user-interface-page-layouts-blank.html">
-
-                                            <span>Project Dashboard</span>
+                                        <a class="nav-link ripple " href="" data-url="user-interface-page-layouts-blank.html">
+                                            <span>Sub nivel 1</span>
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link ripple " href="apps-dashboards-server.html" data-url="user-interface-page-layouts-blank.html">
+                                        <a class="nav-link ripple " href="" data-url="user-interface-page-layouts-blank.html">
 
-                                            <span>Server</span>
+                                            <span>Sub nivel 2</span>
                                         </a>
                                     </li>
 
                                 </ul>
                             </li>
+                            @if (!Auth::guest())
+                                @if(Auth::user()->TipoUsuario->tusu_desc == "UC")
+                                    <li class="subheader">
+                                        <span>Opcion de usuario UC</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link ripple " href="" data-url="user-interface-page-layouts-blank.html">
+                                            <span>Opción 1</span>
+                                        </a>
+                                    </li>
+                                @endif
+                            @endif
 
                         </ul>
                     </div>
@@ -143,7 +152,7 @@
                                             <i class="icon icon-account-box"></i>
                                         </a>
 
-                                        <a href="apps-mail.html" class="shortcut-button btn btn-icon mx-1">
+                                        <a href="/prueba/bandeja" class="shortcut-button btn btn-icon mx-1">
                                             <i class="icon icon-email"></i>
                                         </a>
 
@@ -218,7 +227,7 @@
                                                 <img class="avatar" src="{{asset('assets/images/avatars/profile.jpg')}}">
                                                 <i class="status text-green icon-checkbox-marked-circle s-4"></i>
                                             </div>
-                                            <span class="username mx-3 d-none d-md-block">John Doe</span>
+                                            <span class="username mx-3 d-none d-md-block">{{ Auth::user()->name }}</span>
                                         </div>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownUserMenu">
@@ -230,7 +239,7 @@
                                                 </div>
                                             </a>
 
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="/prueba/bandeja">
                                                 <div class="row no-gutters align-items-center flex-nowrap">
                                                     <i class="icon-email"></i>
                                                     <span class="px-3">Inbox</span>
@@ -245,13 +254,19 @@
                                             </a>
 
                                             <div class="dropdown-divider"></div>
-
-                                            <a class="dropdown-item" href="#">
+                                            
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
                                                 <div class="row no-gutters align-items-center flex-nowrap">
                                                     <i class="icon-logout"></i>
                                                     <span class="px-3">Logout</span>
                                                 </div>
                                             </a>
+
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
 
                                         </div>
                                     </div>
@@ -311,15 +326,7 @@
                     </div>
                 </nav>
                 @yield('contenido')
-                <div class="content">
-
-                    <div class="page-layout blank p-6">
-
-                        <h2>Blank page</h2>
-
-                    </div>
-
-                </div>
+                
             </div>
             <div class="quick-panel-sidebar" fuse-cloak data-fuse-bar="quick-panel-sidebar" data-fuse-bar-position="right">
                 <div class="list-group" class="date">
@@ -431,18 +438,14 @@
                         <div class="list-item-content">
                             <h3>Cloud Sync</h3>
                         </div>
-
                         <div class="secondary-container">
                             <label class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" />
                                 <span class="custom-control-indicator"></span>
                             </label>
                         </div>
-
                     </div>
-
                     <div class="list-group-item">
-
                         <div class="list-item-content">
                             <h3>Retro Thrusters</h3>
                         </div>
@@ -461,7 +464,5 @@
         </div>
     </main>
 </body>
-
-
 <!-- Mirrored from fuse-bootstrap4-material.withinpixels.com/vertical-layout-below-toolbar-left-navigation/user-interface-page-layouts-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jan 2018 23:35:12 GMT -->
 </html>

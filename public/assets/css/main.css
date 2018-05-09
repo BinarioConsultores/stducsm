@@ -19529,9 +19529,9 @@ i.s-32,
 }
 
 .page-layout .page-header {
-    height: 20rem;
-    min-height: 20rem;
-    max-height: 20rem
+    height: 12rem;
+    min-height: 12rem;
+    max-height: 12rem
 }
 
 .page-layout .page-header .breadcrumb {
