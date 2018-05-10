@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/prueba/bandeja', function () {
 	return view('modelos.bandeja');
 });
+Route::get('/prueba/form', function () {
+	return view('modelos.form');
+});

@@ -1963,6 +1963,11 @@ pre code {
     padding: .4rem
 }
 
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
 .table-bordered {
     border: 0px solid #E9ECEF
 }
